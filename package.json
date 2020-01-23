@@ -1,0 +1,19 @@
+{
+  "name": "rentinga",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "lerna run start",
+    "start:spa": "yarn workspace @rentinga/spa start",
+    "bootstrap": "lerna bootstrap"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.10.5"
+  }
+}

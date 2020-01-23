@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Bem vindo(a)! Pronto para encontrar o lugar perfeito para alugar?",
+    "type": {
+      "apartments": "Apartamentos",
+      "houses": "Casas",
+      "kitnet": "Kitnet"
+    },
+    "price": {
+      "0,600": "R$0 até R$600",
+      "601,1000": "R$601 até R$1000",
+      "1001,1500": "R$1001 até R$1500",
+      "1501,3000": "R$1501 até R$3000",
+      "3001,5000": "R$3001 até R$5000",
+      "5001,50000": "R$5001 ou mais"
+    },
+    "bedroom": {
+      "0,0": "Nenhum quarto",
+      "1,1": "1 quarto",
+      "2,2": "2 quartos",
+      "3,50": "3 ou mais",
+      "0,50": "Todas opções"
+    },
+    "garage": {
+      "0,0": "Nenhuma garagem",
+      "1,1": "1 garagem",
+      "2,50": "2 ou mais",
+      "0,50": "Todas opções"
+    },
+    "search": "Procurar"
+  }
+}

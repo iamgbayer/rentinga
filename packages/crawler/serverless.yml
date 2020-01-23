@@ -1,0 +1,42 @@
+service: functions
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  crawler:
+    handler: index.crawler
+
+resources:
+  Resources:
+    rents:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: rents
+        KeySchema:
+          - AttributeName: id
+            KeyType: S
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+    DynamoDBIamPolicy:
+      Type: AWS::IAM::Policy
+      DependsOn: rents
+      Properties:
+        PolicyName: cralwer-dynamodb
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:DescribeTable
+                - dynamodb:Query
+                - dynamodb:Scan
+                - dynamodb:Put
+                - dynamodb:GetItem
+                - dynamodb:DeleteItem
+              Resource: arn:aws:dynamodb:*:*:table/rents
+        Roles:
+          - Ref: IamRoleLambdaExecution

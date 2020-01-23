@@ -1,0 +1,15 @@
+{
+  "name": "@rentinga/crawler",
+  "scripts": {
+    "start": "serverless invoke local --function crawler"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.501.0",
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "iconv-lite": "^0.5.0",
+    "node-geocoder": "^3.24.0",
+    "request": "^2.88.0",
+    "retry-request": "^4.1.1"
+  }
+}

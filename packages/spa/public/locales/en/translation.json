@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Welcome! Ready to find the perfect place to rent?",
+    "type": {
+      "apartments": "Apartments",
+      "houses": "Houses",
+      "kitnet": "Kitnet"
+    },
+    "price": {
+      "0,600": "R$0 to R$600",
+      "601,1000": "R$601 to R$1000",
+      "1001,1500": "R$1001 to R$1500",
+      "1501,3000": "R$1501 to R$3000",
+      "3001,5000": "R$3001 to R$5000",
+      "5001,50000": "R$5001 or more"
+    },
+    "bedroom": {
+      "0,0": "None bedroom",
+      "1,1": "1 bedroom",
+      "2,2": "2 bedrooms",
+      "3,50": "3 or more",
+      "0,50": "All options"
+    },
+    "garage": {
+      "0,0": "None garage",
+      "1,1": "1 garage",
+      "2,50": "2 or more",
+      "0,50": "All options"
+    },
+    "search": "Search"
+  }
+}
