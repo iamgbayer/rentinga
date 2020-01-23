@@ -8,6 +8,7 @@
   "scripts": {
     "start": "lerna run start",
     "start:spa": "yarn workspace @rentinga/spa start",
+    "build:spa": "yarn workspace @rentinga/spa build",
     "bootstrap": "lerna bootstrap"
   },
   "workspaces": [
