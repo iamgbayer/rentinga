@@ -7,7 +7,9 @@ import { withBreakpoints } from 'react-breakpoints'
 import { useTranslation } from 'react-i18next'
 
 import { Button, Icon, Text, Box, AnimableInputs } from 'components'
+import background from 'images/home.svg'
 import { Inputs } from 'containers'
+import { theme } from 'styled-tools'
 
 const Header = styled(motion.div)`
   width: 100%;
@@ -15,6 +17,7 @@ const Header = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   ${media.lessThan('medium')`
     padding: 0 15px;
@@ -41,6 +44,18 @@ const Languages = styled(motion.div)`
 `
 
 const Language = styled(Box)``
+
+const Background = styled.img`
+  width: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: ${theme('zindex.negative')};
+
+  ${media.lessThan('small')`
+    display: none;
+  `}
+`
 
 const enterWithY = y => ({
   initial: { opacity: 0 },
@@ -95,6 +110,8 @@ export const Home = withBreakpoints(
             🇧🇷
           </Language>
         </Languages>
+
+        <Background src={background} />
       </Header>
     )
   })

@@ -102,6 +102,7 @@ exports[`Should not expect visual regression 1`] = `
   list-style: none;
   z-index: 9000;
   box-shadow: 0 2px 10px rgba(87,93,169,0.2);
+  display: none;
 }
 
 .c9 {
@@ -149,12 +150,20 @@ exports[`Should not expect visual regression 1`] = `
   align-items: center;
 }
 
+@media (max-width:450px) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
 <div
   class="c0"
 >
   <div
     class="c1"
-    placeholder="Procurar"
+    placeholder="home.search"
   >
     <input
       class="c2"
@@ -172,7 +181,7 @@ exports[`Should not expect visual regression 1`] = `
       <span
         class="c6"
       >
-        Apartamentos
+        home.type.apartments
       </span>
       <div
         class=""
@@ -186,25 +195,24 @@ exports[`Should not expect visual regression 1`] = `
     </div>
     <ul
       class="c8"
-      style="opacity: 0; display: none;"
     >
       <li
         class="c9"
         value="apartamentos"
       >
-        Apartamentos
+        home.type.apartments
       </li>
       <li
         class="c9"
         value="casas"
       >
-        Casas
+        home.type.houses
       </li>
       <li
         class="c9"
         value="kitnet"
       >
-        Kitnet
+        home.type.kitnet
       </li>
     </ul>
   </div>

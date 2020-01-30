@@ -4,7 +4,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { isEmpty } from 'ramda'
 import styled, { ThemeContext } from 'styled-components'
 
-import { Text, Box, Icon } from 'components'
+import { Text } from 'components'
 import { getPhotosByResource } from 'utils'
 import { getRent } from 'graphql/queries'
 import { theme } from 'styled-tools'

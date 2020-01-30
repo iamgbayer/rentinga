@@ -38,7 +38,7 @@ const enterWithY = y => ({
 
 const Content = styled(Box)`
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 200px);
   display: flex;
 `
 
@@ -87,7 +87,7 @@ export const Results = memo(() => {
         exit="exit"
         variants={enterWithX('0%')}
       >
-        <Content top={30}>
+        <Content top={80}>
           <List data={rentsInView} />
           <Map data={rents} setRentsInView={setRentsInView} />
         </Content>

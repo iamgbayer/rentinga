@@ -35,6 +35,7 @@ export const Tokens = {
     }
   },
   zindex: {
+    negative: -1,
     five: 5,
     ten: 10,
     fifty: 50,

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { ifProp, switchProp, theme } from 'styled-tools'
 
 import { Icon, Box } from 'components'
+import { Closeable } from 'components/Closeable'
 
 const Container = styled(Box)`
   position: relative;
@@ -146,31 +147,31 @@ export const Select = memo(
       onChange({ text, value })
     }
 
-    const whenFocus = () => setFocus(!focus)
-
     return (
       <Container full={full} size={size} {...props}>
-        <Selectable
-          onClick={!disabled ? toggleShow : undefined}
-          size={size}
-          smooth={smooth}
-        >
-          {icon && icon({ color: colors.secondary, width: 25, height: 25 })}
-          <Title>{selected.text}</Title>
-          <Icon name="down" width={15} height={15} color={colors.secondary} />
-        </Selectable>
+        <Closeable onClose={toCloseOutside}>
+          <Selectable
+            onClick={!disabled ? toggleShow : undefined}
+            size={size}
+            smooth={smooth}
+          >
+            {icon && icon({ color: colors.secondary, width: 25, height: 25 })}
+            <Title>{selected.text}</Title>
+            <Icon name="down" width={15} height={15} color={colors.secondary} />
+          </Selectable>
 
-        <Options show={show} size={size} smooth={smooth}>
-          {options.map(({ value, text }) => (
-            <Option
-              key={value}
-              value={value}
-              onClick={whenSelected({ value, text })}
-            >
-              {text}
-            </Option>
-          ))}
-        </Options>
+          <Options show={show} size={size} smooth={smooth}>
+            {options.map(({ value, text }) => (
+              <Option
+                key={value}
+                value={value}
+                onClick={whenSelected({ value, text })}
+              >
+                {text}
+              </Option>
+            ))}
+          </Options>
+        </Closeable>
       </Container>
     )
   }
