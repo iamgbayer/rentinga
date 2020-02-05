@@ -39,12 +39,12 @@ function Map({ data, setRentsInView }) {
     setRentsInView(markers)
   }
 
-  useEffect(() => {
-    setTimeout(
-      () => ref.current && ref.current.leafletElement.invalidateSize(),
-      1000
-    )
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(
+  //     () => ref.current && ref.current.leafletElement.invalidateSize(),
+  //     1000
+  //   )
+  // }, [])
 
   return (
     <Container
@@ -53,13 +53,22 @@ function Map({ data, setRentsInView }) {
       zoom={14}
       maxZoom={17}
       zoomControl={false}
-      onmoveend={getOnlyInView}
+      // onmoveend={getOnlyInView}
     >
       <TileLayer url="https://api.mapbox.com/styles/v1/iamgbayer/cjyuvqzgv09ph1cp7slxoz5y4/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWFtZ2JheWVyIiwiYSI6ImNqdDdpb2s0NDA4Mm80YWxqYWZvMmgxeW4ifQ.v9gVtBtE3cCk5ijRS0R6Kw" />
 
-      {data.map(({ id, latitude, longitude, ...props }) => (
-        <Marker id={id} key={id} position={[latitude, longitude]} {...props} />
-      ))}
+      {data
+        .filter(({ latitude, longitude }) => {
+          return latitude
+        })
+        .map(({ id, latitude, longitude, ...props }) => (
+          <Marker
+            id={id}
+            key={id}
+            position={[latitude, longitude]}
+            {...props}
+          />
+        ))}
     </Container>
   )
 }

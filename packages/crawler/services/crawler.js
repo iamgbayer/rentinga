@@ -17,6 +17,19 @@ const extract = async (type, html) => {
     rents
       .map(async (index, element) => {
         const rent = cheerio.load(element)
+        let geocoded = {
+          administrativeLevels: {
+            level2long: null
+          },
+          latitude: null,
+          longitude: null,
+          extra: {
+            neighborhood: null
+          },
+          streetNumber: null,
+          streetName: null,
+          zipcode: null
+        }
 
         const url =
           rent('.resultados_imoveis_listadescricao.resultados_imoveis_border')
@@ -154,7 +167,15 @@ const extract = async (type, html) => {
 
         await sleep(1000)
 
-        const [geocoded] = await geocoder.geocode(`${address} ${city}`)
+        try {
+          const [geocode] = await geocoder.geocode(`${address} ${city}`)
+
+          if (geocode) {
+            geocoded = geocode
+          }
+        } catch (error) {
+          console.error(error)
+        }
 
         return {
           id,
